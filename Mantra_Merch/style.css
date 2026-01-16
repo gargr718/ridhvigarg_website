@@ -1,0 +1,422 @@
+:root{
+  --bg-dark: #101218;
+  --bg-mid: #1a1c22;
+  --bg-light: #20232b;
+
+  --text: #f5f7ff;
+  --muted: rgba(245,247,255,0.7);
+  --border: rgba(245,247,255,0.12);
+  --accent: rgb(172,221,252);
+
+  --radius: 18px;
+}
+
+*{ box-sizing: border-box; }
+
+body{
+  margin: 0;
+  font-family: "Inter", system-ui, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(900px 500px at 30% 20%, rgba(183,205,255,0.04), transparent 60%),
+    linear-gradient(180deg, var(--bg-dark), var(--bg-mid), var(--bg-light));
+  line-height: 1.75;
+}
+
+/* TOP BAR */
+.topbar{
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(16,18,24,0.6);
+  backdrop-filter: blur(10px);
+}
+
+.back-link{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 12px;
+  transition: color .25s ease;
+}
+
+.back-link .arrow{
+  font-size: 18px;
+  transition: transform .25s ease;
+}
+
+.back-link:hover{
+  color: var(--text);
+}
+
+.back-link:hover .arrow{
+  transform: translateX(-4px);
+}
+
+/* LAYOUT */
+.container{
+  width: min(1100px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 40px 0 80px;
+}
+
+/* HERO */
+.hero{
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 32px;
+  align-items: center;
+}
+
+.eyebrow{
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+h1{
+  margin: 6px 0 14px;
+  font-size: 75px;
+  font-weight: 500;
+  font-family: "Cormorant Garamond", serif;
+  color: #a8dcff;
+  letter-spacing: 0.4px;
+  line-height: 1.05; /* THIS fixes the big vertical gap */
+}
+
+
+
+.intro{
+  max-width: 600px;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 250;
+  letter-spacing: 0.3px;
+  line-height: 26px;
+  margin-top: 40px;
+}
+
+.accent{ color: var(--accent); }
+
+.meta{
+  margin-top: 28px;
+  font-size: 13px;
+  color: rgba(245,247,255,0.5);
+}
+
+.hero-image img{
+  width: 100%;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+/* SECTIONS */
+.section{
+  margin-top: 70px;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 28px;
+}
+
+.section{
+  align-items: center;
+}
+
+
+.section-head{
+  position: sticky;
+  top: 78px;
+  font-weight: 500;
+font-family: "Cormorant Garamond", serif;
+color:#a8dcff;
+}
+
+.section-head h2{
+  margin: 0;
+  font-size: 24px;
+  font-weight: 300;
+  transition: color .3s ease;
+  font-family: "Cormorant Garamond", serif;
+color:#a8dcff;
+}
+
+
+.section-body{
+  border-left: 1px solid rgba(245,247,255,0.1);
+  padding-left: 24px;
+  font-size: 14px;
+
+  /* Start dim, not blurry */
+  opacity: 0.50;
+  transform: translateY(6px);
+
+  transition:
+    opacity .35s ease,
+    transform .35s ease;
+      font-weight: 300;
+  letter-spacing: 0.3px;
+}
+
+/* Let the mockups section use more width */
+.section-body .grid.two.mockups{
+  max-width: 100%;
+}
+
+
+
+.section:hover .section-body,
+.section:focus-within .section-body{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* GRIDS */
+.grid{
+  display: grid;
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.grid.one{ grid-template-columns: 1fr; }
+.grid.two{ grid-template-columns: repeat(2, 1fr); }
+.grid.three{ grid-template-columns: repeat(3, 1fr); }
+
+img{
+  width: 100%;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+}
+
+.image-small{
+  max-width: 740px;   /* adjust this value */
+  margin: 0 auto; 
+  margin-top: 20px;    /* centers the image */
+}
+
+.image1{
+    max-width:100%;
+}
+
+
+figcaption{
+  margin-top: 8px;
+  font-size: 13px;
+  color: rgba(245,247,255,0.6);
+}
+
+.muted{
+  color: var(--muted);
+  max-width: 780px;
+  margin-bottom: 30px;
+  margin-top: 0px;
+  font-weight: 300;
+  letter-spacing: 0.3px;
+}
+
+/* EXPAND */
+details{
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  background: rgba(16,18,24,0.35);
+}/* === Hover Expand (replaces <details>) === */
+
+.hover-expand{
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: rgba(16,18,24,0.35);
+  overflow: hidden;
+  transition: border-color .3s ease;
+}
+
+/* Top visible bar */
+.hover-head{
+  padding: 16px 18px;
+}
+
+.hover-title{
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+/* Hidden content */
+.hover-body{
+  max-height: 0;
+  opacity: 0;
+  padding: 0 18px;
+  overflow: hidden;
+
+  transition:
+    max-height .6s ease,
+    opacity .4s ease,
+    padding .4s ease;
+}
+
+/* Expand on hover */
+.hover-expand:hover{
+  border-color: rgba(172,221,252,0.35);
+}
+
+.hover-expand:hover .hover-body{
+  max-height: 1000px; /* large enough for images */
+  opacity: 1;
+  padding: 0 18px 18px;
+}
+
+.grid.three.small-cards{
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: center;
+}
+
+.grid.three.small-cards figure{
+  max-width: 260px;
+  margin: 0 auto;
+}
+
+.grid.three.small-cards img{
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+
+summary{
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--accent);
+  list-style: none;
+}
+
+summary::-webkit-details-marker{ display: none; }
+
+
+
+/* =========================
+   FINAL MOBILE (<= 740px)
+   Keeps interactions same as desktop
+   Only reduces sizes
+   ========================= */
+@media (max-width: 740px){
+
+  /* Layout tighten */
+  .container{
+    width: calc(100% - 28px);
+    padding: 22px 0 56px;
+  }
+
+  /* Top bar: keep same behavior, just tighter */
+  .topbar{
+    padding: 12px 14px;
+  }
+  .back-link{ font-size: 13px; }
+  .back-link .arrow{ font-size: 17px; }
+
+  /* Hero stacks on mobile */
+  .hero{
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  h1{
+    font-size: 32px;
+    line-height: 1.18;
+  }
+  .intro{
+    font-size: 14px;
+    margin-top: 30px;
+  }
+  .meta{
+    font-size: 12px;
+    margin-bottom: 30px;
+  }
+
+  /* Sections stack, sticky heading becomes normal (required for mobile usability) */
+  .section{
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 44px;
+  }
+  .section-head{
+    position: relative;
+    top: auto;
+  }
+  .section-body{
+    border-left: none;
+    padding-left: 0;
+  }
+
+  /* Grids become single column on mobile */
+  .grid.one,
+  .grid.two,
+  .grid.three{
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  /* Global image safety (prevents weird cropping) */
+  img{
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+  }
+
+  /* HERO image slightly smaller visual weight */
+  .hero-image{
+    max-width: 450px;
+    margin: 0 auto;
+  }
+
+  /* Final Wildposting already has wrapper — just make sure it fits */
+  .image-small{
+    max-width: 520px;
+    margin: 14px auto 0;
+  }
+
+  /* =========================
+     SIZE HIERARCHY ON MOBILE
+     (GIFs bigger than mockups, mockups bigger than process)
+     ========================= */
+
+  /* 1) GIFs (biggest) */
+  .grid.three img{
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  /* 2) Mockups (medium) — applies to images in your final outcome grids */
+  .section-body .grid img{
+    max-width: 360px;
+    margin: 0 auto;
+  }
+
+  /* 3) Process images (smallest) — only inside the hover expand body */
+  .hover-body .grid img{
+    max-width: 210px;
+    margin: 0 auto;
+  }
+
+  /* Hover expand box tighter spacing on mobile */
+  .hover-head{
+    padding: 14px 14px;
+  }
+  .hover-body{
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+  .hover-expand:hover .hover-body{
+    padding: 0 14px 14px;
+  }
+
+  /* Captions slightly smaller */
+  figcaption{
+    font-size: 12px;
+  }
+}

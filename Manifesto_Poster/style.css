@@ -1,0 +1,529 @@
+
+:root{
+  --bg-dark: #101218;
+  --bg-mid: #1a1c22;
+  --bg-light: #20232b;
+
+  --text: #f5f7ff;
+  --muted: rgba(245,247,255,0.7);
+  --border: rgba(245,247,255,0.12);
+  --accent: rgb(172,221,252);
+
+  --radius: 18px;
+}
+
+*{ box-sizing: border-box; }
+
+body{
+  margin: 0;
+  font-family: "Inter", system-ui, sans-serif;
+  color: var(--text);
+  background:
+    linear-gradient(180deg, var(--bg-dark), var(--bg-mid), var(--bg-light));
+  line-height: 1.75;
+}
+
+/* TOP BAR */
+.topbar{
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(16,18,24,0.6);
+  backdrop-filter: blur(10px);
+}
+
+.back-link{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 12px;
+  transition: color .25s ease;
+}
+
+.back-link .arrow{
+  font-size: 18px;
+  transition: transform .25s ease;
+}
+
+.back-link:hover{
+  color: var(--text);
+}
+
+.back-link:hover .arrow{
+  transform: translateX(-4px);
+}
+
+/* LAYOUT */
+.container{
+  width: min(1150px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 40px 0 80px;
+}
+
+/* HERO */
+.hero{
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 32px;
+  align-items: center;
+}
+
+.eyebrow{
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+h1{
+  margin: 6px 0 14px;
+  font-size: 80px;
+  font-weight: 500;
+  font-family: "Cormorant Garamond", serif;
+  color: #a8dcff;
+  letter-spacing: 0.4px;
+  line-height: 1.05; /* THIS fixes the big vertical gap */
+}
+
+
+
+.intro{
+  max-width: 580px;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 250;
+  letter-spacing: 0.3px;
+  line-height: 26px;
+  margin-top: 40px;
+}
+
+.accent{ color: var(--accent); }
+
+.meta{
+  margin-top: 28px;
+  font-size: 13px;
+  color: rgba(245,247,255,0.5);
+}
+
+.hero-image img{
+  width: 95%;
+  border-radius: 12px;
+  padding: 8px;          /* white breathing space */
+  background: #ffffff;
+}
+
+/* SECTIONS */
+.section{
+  margin-top: 70px;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 28px;
+}
+
+.section{
+  align-items: center;
+}
+
+
+.section-head{
+  position: sticky;
+  top: 78px;
+  font-weight: 500;
+font-family: "Cormorant Garamond", serif;
+color:#a8dcff;
+}
+
+.section-head h2{
+  margin: 0;
+  font-size: 24px;
+  font-weight: 300;
+  transition: color .3s ease;
+  font-family: "Cormorant Garamond", serif;
+color:#a8dcff;
+letter-spacing: 0.3px;
+}
+
+
+.section-body{
+  border-left: 1px solid rgba(245,247,255,0.1);
+  padding-left: 24px;
+  font-size: 14px;
+
+  /* Start dim, not blurry */
+  opacity: 0.50;
+  transform: translateY(6px);
+
+  transition:
+    opacity .35s ease,
+    transform .35s ease;
+      font-weight: 300;
+  letter-spacing: 0.3px;
+}
+
+/* Let the mockups section use more width */
+.section-body .grid.two.mockups{
+  max-width: 100%;
+}
+
+
+
+.section:hover .section-body,
+.section:focus-within .section-body{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* GRIDS */
+.grid{
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.grid.one{ grid-template-columns: 1fr; }
+.grid.two{ grid-template-columns: repeat(2, 1fr); }
+.grid.three{ grid-template-columns: repeat(3, 1fr); }
+
+img{
+  width: 100%;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+}
+
+.image-small{
+  max-width: 790px;   /* adjust this value */
+  margin: 0 auto; 
+  margin-top: 20px;    /* centers the image */
+}
+
+.image1{
+    max-width:100%;
+}
+
+
+figcaption{
+  margin-top: 8px;
+  font-size: 13px;
+  color: rgba(245,247,255,0.6);
+}
+
+.muted{
+  color: var(--muted);
+  max-width: 780px;
+  margin-bottom: 30px;
+  margin-top: 0px;
+  font-weight: 300;
+  letter-spacing: 0.3px;
+}
+
+/* EXPAND */
+details{
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  background: rgba(16,18,24,0.35);
+}/* === Hover Expand (replaces <details>) === */
+
+.hover-expand{
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: rgba(16,18,24,0.35);
+  overflow: hidden;
+  transition: border-color .3s ease;
+}
+
+.hover-head{
+  padding: 16px 18px;
+}
+
+.hover-title{
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+/* Smooth reveal */
+.hover-body{
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  padding: 0 18px;
+  overflow: hidden;
+
+  transition:
+    grid-template-rows .45s cubic-bezier(.2,.8,.2,1),
+    opacity .25s ease,
+    padding .25s ease;
+}
+
+.hover-body > .hover-inner{
+  overflow: hidden;
+}
+
+.hover-expand:hover{
+  border-color: rgba(172,221,252,0.35);
+}
+
+.hover-expand:hover .hover-body,
+.hover-expand:focus-within .hover-body{
+  grid-template-rows: 1fr;
+  opacity: 1;
+  padding: 0 18px 18px;
+}
+
+.hover-body img{
+  display: block;
+}
+
+
+
+.grid.two{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  align-items: center;
+}
+
+.grid.two figure{
+  display: flex;
+  justify-content: center;
+}
+
+
+
+.grid.three.small-cards{
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: center;
+  gap: 34px;
+}
+
+.grid.three.small-cards figure{
+  max-width: 260px;
+  margin: 0 auto;
+}
+
+.grid.three.small-cards img{
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.image-large{
+  width: 47%;
+  margin: 48px auto 0;
+  padding: 10px;          /* white breathing space */
+  background: #ffffff;   /* white frame */
+  border-radius: 12px;    /* rounded ONLY on border */
+  overflow: hidden;      /* clips image to frame */
+}
+
+.image-large img{
+  width: 100%;
+  display: block;
+  border-radius: 0;      /* completely sharp image */
+}
+
+/* === MOCKUPS ROW: bigger images + tighter gap (override) === */
+.section-body .grid.two.mockups{
+  gap: 10px !important; /* reduce gap */
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.section-body .grid.two.mockups figure{
+  justify-content: stretch; /* let image fill the cell */
+}
+
+.section-body .grid.two.mockups img{
+  max-width: none !important; /* remove the 520px cap */
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+
+summary{
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--accent);
+  list-style: none;
+}
+
+summary::-webkit-details-marker{ display: none; }
+
+
+
+/* =========================
+   MOBILE (<= 740px)
+   - Make BIG showcase images smaller ONLY on mobile
+   - Keep ALL process/draft images in ONE LINE (horizontal scroll)
+   - Keep hover + interactions the same
+   ========================= */
+@media (max-width: 740px){
+
+  /* Layout tighten */
+  .container{
+    width: calc(100% - 28px);
+    padding: 22px 0 56px;
+  }
+
+  /* Topbar */
+  .topbar{ padding: 12px 14px; }
+  .back-link{ font-size: 13px; }
+  .back-link .arrow{ font-size: 17px; }
+
+  /* Hero stacks */
+  .hero{
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  h1{
+    font-size: 36px;
+    line-height: 1.18;
+  }
+
+  .intro{
+    font-size: 14px;
+    margin-top: 22px;
+  }
+
+  .meta{
+    font-size: 12px;
+    margin-bottom: 18px;
+  }
+
+  /* Sections stack (sticky becomes normal on mobile) */
+  .section{
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 44px;
+    align-items: start;
+  }
+
+  .section-head{
+    position: relative;
+    top: auto;
+  }
+
+  .section-body{
+    border-left: none;
+    padding-left: 0;
+  }
+
+  /* Global image safety */
+  img{
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+  }
+
+  /* =========================
+     1) BIG SHOWCASE IMAGES SMALLER (MOBILE ONLY)
+     - Hero image
+     - Event poster image (.image-large)
+     - Printed pamphlet image (.image-large)
+     ========================= */
+
+  /* Hero image smaller + centered */
+  .hero-image{
+    max-width: 400px;        /* smaller than before */
+    margin: 0 auto;
+  }
+  .hero-image img{
+    width: 100%;
+    max-width: 500px;  /* slightly bigger than other images */
+    margin: 0 auto;
+  }
+
+  /* Event poster + Printed pamphlet (your .image-large wrapper) */
+  .image-large{
+    width: min(340px, 92%);  /* smaller on mobile */
+    margin: 16px auto 0;
+    padding: 8px;
+    border-radius: 12px;
+  }
+
+  /* Your wildposting / bottom single mockup stays neat */
+  .image-small{
+    max-width: 420px;
+    margin: 14px auto 0;
+  }
+
+  /* Mockups: stack or keep if you want — here it stacks cleanly */
+  .grid.one{ grid-template-columns: 1fr; }
+  .grid.two{
+    grid-template-columns: 1fr;  /* avoids squish on mobile */
+    gap: 14px;
+  }
+  .grid.three{
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  /* =========================
+     2) PROCESS / INITIAL DRAFTS = ONE LINE (HORIZONTAL SCROLL)
+     Works for both:
+     - Manifesto initial drafts
+     - Event poster drafts
+     ========================= */
+
+  .grid.three.small-cards{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;               /* tighter spacing */
+    align-items: start;
+    justify-items: stretch;
+  }
+
+  /* remove the desktop cap that causes weird spacing */
+  .grid.three.small-cards figure{
+    max-width: none;
+    margin: 0;
+    width: 100%;
+    display: block;
+  }
+
+  /* make each draft smaller so all 3 fit comfortably */
+  .grid.three.small-cards img{
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;    /* optional: slightly tighter rounding on mobile */
+  }
+
+  /* if your hover box padding makes them feel cramped, reduce it */
+  .hover-head{ padding: 12px 14px; }
+  .hover-expand:hover .hover-body,
+  .hover-expand:focus-within .hover-body{
+    padding: 0 14px 14px;
+  }
+
+  .section-body .grid.two.mockups{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;                 /* tighter spacing */
+    align-items: stretch;
+  }
+
+  .section-body .grid.two.mockups figure{
+    margin: 0;
+    width: 100%;
+    display: block;
+  }
+
+  .section-body .grid.two.mockups img{
+    width: 100%;
+    max-width: none;          /* removes size restriction */
+    height: auto;
+    display: block;
+    border-radius: 12px;
+  }
+
+}
+
+

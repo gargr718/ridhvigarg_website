@@ -1,0 +1,323 @@
+/* style.css */
+:root{
+  --bg-dark: #101218;
+  --bg-mid: #1a1c22;
+  --bg-light: #20232b;
+
+  --text: #f5f7ff;
+  --muted: rgba(245,247,255,0.7);
+  --border: rgba(245,247,255,0.12);
+  --accent: rgb(172,221,252);
+
+  --radius: 18px;
+}
+
+*{ box-sizing: border-box; }
+
+body{
+  margin: 0;
+  font-family: "Inter", system-ui, sans-serif;
+  color: var(--text);
+  background: linear-gradient(180deg, var(--bg-dark), var(--bg-mid), var(--bg-light));
+  line-height: 1.75;
+}
+
+/* Remove default browser margins that mess up grids */
+figure{ margin: 0; }
+
+/* GLOBAL IMAGES */
+img{
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 0;
+  border-radius: 0;
+}
+
+.accent{ color: var(--accent); }
+
+/* TOP BAR */
+.topbar{
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(16,18,24,0.6);
+  backdrop-filter: blur(10px);
+}
+
+.back-link{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 12px;
+  transition: color .25s ease;
+}
+
+.back-link .arrow{
+  font-size: 18px;
+  transition: transform .25s ease;
+}
+
+.back-link:hover{ color: var(--text); }
+.back-link:hover .arrow{ transform: translateX(-4px); }
+
+/* LAYOUT */
+.container{
+  width: min(1150px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 36px 0 80px;
+}
+
+/* HEADINGS */
+h1{
+  margin: 0 0 12px;
+  font-size: 70px;
+  font-weight: 500;
+  font-family: "Cormorant Garamond", serif;
+  color: #a8dcff;
+  letter-spacing: 0.4px;
+  line-height: 1.05;
+}
+
+h2{
+  margin: 0;
+  font-weight: 300;
+  color: var(--muted);
+  opacity: 0.65;
+  font-size: 16px;
+  letter-spacing: 0.3px;
+  font-family: "Inter", system-ui, sans-serif;
+  margin-bottom: 20px;
+  margin-top: -10px;
+}
+
+/* ===== INTRO BLOCK (CENTERED) ===== */
+.intro-block{
+  text-align: center;
+  max-width: 920px;
+  margin: 0 auto 26px;
+}
+
+.intro{
+  max-width: 900px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 250;
+  letter-spacing: 0.3px;
+  line-height: 26px;
+}
+
+.meta{
+  margin: 18px auto 0;
+  font-size: 14px;
+  color: rgba(245,247,255,0.5);
+  max-width: 760px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+/* VIDEO SECTION */
+.video-hero{
+  margin-top: 22px;
+}
+
+/* NOT full-bleed anymore */
+.video-wrap{
+  max-width: 1100px;   /* aligns with your content rhythm */
+  margin: 0 auto;      /* center it */
+  padding: 0 24px;     /* breathing space on sides */
+  background: transparent;
+}
+
+/* VIDEO – no cropping */
+.hero-video{
+  width: 100%;
+  height: auto;        /* let aspect ratio decide */
+  max-height: 78vh;    /* still feels cinematic */
+  display: block;
+
+  object-fit: contain; /* ✅ shows full video */
+  background: transparent;
+  border-radius: 12px; /* optional, matches your aesthetic */
+}
+
+
+
+/* SECTIONS */
+.section{
+  margin-top: 70px;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 28px;
+  align-items: center;
+}
+
+.section-head{
+  position: sticky;
+  top: 78px;
+  font-weight: 500;
+  font-family: "Cormorant Garamond", serif;
+  color: #a8dcff !important;
+  opacity: 1 !important;
+}
+
+.section-head h2{
+  font-size: 25px;
+  font-weight: 300;
+  font-family: "Cormorant Garamond", serif;
+  color:#a8dcff;
+  letter-spacing: 0.5px;
+  line-height: 34px;
+  opacity: 1 !important;
+}
+
+/* Section body with subtle “reveal” */
+.section-body{
+  border-left: 1px solid rgba(245,247,255,0.1);
+  padding-left: 24px;
+  font-size: 14px;
+  opacity: 0.50;
+  transform: translateY(6px);
+  transition: opacity .35s ease, transform .35s ease;
+  font-weight: 300;
+  letter-spacing: 0.3px;
+  max-width: 1250px;
+}
+
+.section:hover .section-body,
+.section:focus-within .section-body{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* TEXT */
+.muted{
+  color: var(--muted);
+  margin: 0 0 16px;
+  font-weight: 300;
+  letter-spacing: 0.3px;
+}
+
+
+/* GRIDS */
+.grid{
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.grid figure{
+  padding: 0;
+  background: transparent;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.grid.one{ grid-template-columns: 1fr; }
+.grid.two{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.grid.three{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+/* two-image section spacing */
+.process-two{
+  margin-top: 22px;
+  gap: 22px;
+}
+
+.process-two figure{
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+/* Optional: crop mockups nicely (remove if you want full image) */
+.process-two img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Make Accordion Book images larger */
+.process-two{
+  max-width: 1250px;      /* wider than text */
+  margin-left: 0px;     /* pull slightly left */
+  margin-right: -60px;    /* pull slightly right */
+  gap: 32px;              /* more breathing room */
+}
+
+
+/* MOBILE */
+@media (max-width: 740px){
+
+  .container{
+    width: calc(100% - 28px);
+    padding: 22px 0 56px;
+  }
+
+  .topbar{ padding: 12px 14px; }
+  .back-link{ font-size: 13px; }
+  .back-link .arrow{ font-size: 17px; }
+
+  h1{
+    font-size: 36px;
+    line-height: 1.18;
+  }
+
+  .intro{
+    font-size: 14px;
+    margin-top: 8px;
+  }
+
+  .meta{
+    font-size: 12px;
+  }
+
+  .video-wrap video{
+  max-height: 52vh;   /* was effectively smaller before */
+}
+
+  .section{
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 44px;
+  }
+
+  .section-head{
+    position: relative;
+    top: auto;
+  }
+
+  .section-body{
+    border-left: none;
+    padding-left: 0;
+  }
+
+  .process-two{
+    grid-template-columns: 1fr; /* stack */
+    gap: 12px;
+  }
+}
+@media (max-width: 740px){
+
+  .process-two{
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2 images side-by-side */
+    gap: 10px;
+    margin-right: 0;   /* prevent overflow from your desktop negative margins */
+  }
+
+  .process-two figure{
+    overflow: hidden;
+    border-radius: 14px;
+  }
+
+  .process-two img{
+    width: 100%;
+    height: 22vh;       /* keeps both visible at once */
+    object-fit: cover;/* no cropping */
+    display: block;
+  }
+
+}
+
